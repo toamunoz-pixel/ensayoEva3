@@ -37,3 +37,23 @@ while ejecutando:
                     print(f"Arriendo exitoso, ha retirado {cantidad_a_arrendar} bicis")
             except ValueError:
                 print("Error, debe ingresar un numero entero")
+    #opcion 3 _devolver biciletas
+    elif opcion == 3:
+        diferencia = capacidad_maxima-bicis_disponibles
+        print(f"\n--- DEVOLVER BICILETA (espacio libre en estacion: {diferencia})")
+        try:
+            cantidad_a_devolver = int(input("¿Cuantas bicicletas desea devolver?: "))
+            if cantidad_a_devolver <= 0:
+                print("Error: la cantidad a devolver debe ser mayor a 0")
+            elif bicis_disponibles + cantidad_a_devolver > capacidad_maxima:
+                prin(f"Error: no se pueden devolver tantas bicicletas, supera cantidad máxima de 25 bicis")
+            else:
+                bicis_disponibles += cantidad_a_devolver
+                viajes_activos -= cantidad_a_devolver
+                print(f"Devolucion exitosa ha regresado {cantidad_a_devolver} biciletas")
+        except ValueError:
+            print("Error debe ingresar un numero entero valido")
+    #opcion 4: Viajes activos
+    elif opcion == 4:
+        print(f"\n[HISTORIAL] actualmente hay {viajes_activos} bicicletas en uso por usuarios")
+        
